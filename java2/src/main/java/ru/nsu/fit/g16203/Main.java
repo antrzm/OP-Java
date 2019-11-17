@@ -1,5 +1,6 @@
 package ru.nsu.fit.g16203;
 
+import ru.nsu.fit.g16203.util.data.DataUtil;
 import ru.nsu.fit.g16203.util.file.FileUtil;
 
 import java.io.File;
@@ -21,7 +22,8 @@ public class Main {
 
         if (file != null) {
             if (stringToFind != null) {
-                //TODO
+                DataUtil dataUtil = new DataUtil(stringToFind, file);
+                dataUtil.search();
             }
             if (fileNameToFind != null) {
                 FileUtil.getAllFiles(fileNameToFind, file);
@@ -63,7 +65,7 @@ public class Main {
         }
     }
 
-    private static void printErrorAndTerminate(String err) {
+    public static void printErrorAndTerminate(String err) {
         System.err.println(err);
         printHelpAndTerminate();
     }
